@@ -485,9 +485,10 @@ main, section, footer, header { position: relative; }
   background: radial-gradient(circle, rgba(200,16,46,.9) 0 58%, transparent 59%);
   box-shadow: 0 0 0 14px rgba(200,16,46,.1), 0 0 0 30px rgba(200,16,46,.05);
 }
-.tsuru__big { position: absolute; inset: 22% 10% 20% 10%; animation: hover 4s ease-in-out infinite alternate; }
+.tsuru__big { position: absolute; inset: 0; display: grid; place-items: center; animation: hover 4s ease-in-out infinite alternate; }
+/* sobe um pouco: o corpo do tsuru fica na parte de baixo do desenho, abaixo das asas */
+.tsuru__big .crane { width: 74%; translate: 0 -10%; }
 @keyframes hover { from { transform: translateY(-10px) rotate(-2deg); } to { transform: translateY(10px) rotate(2deg); } }
-.tsuru__string { position: absolute; left: 50%; top: 0; height: 30%; width: 1px; background: rgba(34,28,25,.25); }
 .wish { display: flex; gap: .6rem; margin-top: 1.4rem; flex-wrap: wrap; }
 .wish input {
   flex: 1 1 220px; min-width: 0;
