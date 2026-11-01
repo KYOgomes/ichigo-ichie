@@ -786,7 +786,4 @@ main, section, footer, header { position: relative; }
 }
 /* usa translate (e não transform) para não brigar com a entrada animada pelo GSAP */
 @keyframes photoFloat { from { translate: 0 -4px; } to { translate: 0 6px; } }
-@media (max-width: 820px) {
-  .tsuru__photo { right: -6%; bottom: -8%; width: 54%; }
-  .tsuru__stage { margin-bottom: 2.4rem; }
-}
+@media (max-width: 820px) { .tsuru__photo { right: -6%; bottom: -8%; width: 54%; } }
