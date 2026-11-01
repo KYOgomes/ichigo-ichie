@@ -769,33 +769,24 @@ main, section, footer, header { position: relative; }
 .credit:hover { color: var(--kin-light) !important; }
 @media (max-width: 820px) { .credit { bottom: calc(84px + env(safe-area-inset-bottom)); } }
 
-/* ===== Árvore dos Desejos (destaque na seção azul) ===== */
-.wishtree {
-  position: relative;
-  display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
-  max-width: 980px; margin: 1.8rem auto 0;
-  background: var(--washi); color: var(--sumi);
-  border-radius: var(--radius); overflow: hidden;
-  box-shadow: 0 30px 60px -28px rgba(0,0,0,.7);
+/* ===== Foto da Árvore dos Desejos sobre o tsuru ===== */
+.tsuru__photo {
+  position: absolute; z-index: 2;
+  right: -14%; bottom: -4%; width: 58%;
+  margin: 0; padding: 8px 8px 30px;
+  background: #fff;
+  box-shadow: 0 22px 40px -16px rgba(0,0,0,.45);
+  rotate: 7deg;
+  animation: photoFloat 5s ease-in-out infinite alternate;
 }
-.wishtree__photo { margin: 0; position: relative; overflow: hidden; min-height: 260px; }
-.wishtree__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
-.wishtree:hover .wishtree__photo img { transform: scale(1.06); }
-.wishtree__text { position: relative; padding: clamp(1.6rem, 4vw, 2.6rem); }
-.wishtree__text h3 { font-size: clamp(1.6rem, 4.4vw, 2.2rem); margin-bottom: .7rem; }
-.wishtree__call { font-family: var(--font-title); font-weight: 800; color: var(--shu); font-size: 1.15rem; }
-.wishtree__k {
-  position: absolute; top: 18px; right: 18px;
-  width: 52px; height: 52px; display: grid; place-items: center;
-  font-family: var(--font-brush); font-size: 1.7rem;
-  color: #fff; background: var(--shu); border-radius: 8px;
-  box-shadow: inset 0 0 0 3px var(--shu), inset 0 0 0 5px rgba(255,255,255,.55);
-  rotate: 6deg;
-  animation: tagSwing 4s ease-in-out infinite alternate;
-  transform-origin: 50% -20px;
+.tsuru__photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.tsuru__photo figcaption {
+  position: absolute; left: 0; right: 0; bottom: 6px; text-align: center;
+  font-family: var(--font-title); font-weight: 700; font-size: .85rem; color: var(--sumi);
 }
-@keyframes tagSwing { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
-@media (max-width: 720px) {
-  .wishtree { grid-template-columns: 1fr; }
-  .wishtree__photo { min-height: 0; aspect-ratio: 16 / 9; }
+/* usa translate (e não transform) para não brigar com a entrada animada pelo GSAP */
+@keyframes photoFloat { from { translate: 0 -4px; } to { translate: 0 6px; } }
+@media (max-width: 820px) {
+  .tsuru__photo { right: -6%; bottom: -8%; width: 54%; }
+  .tsuru__stage { margin-bottom: 2.4rem; }
 }
