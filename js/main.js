@@ -18,7 +18,7 @@
   const TSURU_GOAL = 1000;
 
   const attractions = [
-    { k: "器", t: "Exposição e feira de cerâmicas", d: "Sonia Imanishi e suas 15 alunas." },
+    { k: "器", t: "Exposição e feira de cerâmicas", d: "Sonia Imanishi e seus 15 alunos." },
     { k: "着", t: "Kimonos originais de Kyoto", d: "Exposição de peças autênticas." },
     { k: "本", t: "Lançamento: Crônicas de Portais", d: "Livro de Davi Dumont." },
     { k: "彫", t: "Tatuagem japonesa", d: "Eduardo Rosa (Eduart) · símbolos japoneses, preço sob consulta." },

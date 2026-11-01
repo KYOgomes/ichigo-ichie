@@ -68,11 +68,11 @@ window.OFICINAS = [
     ],
   },
   {
-    k: "陶", t: "Cerâmica", who: "Sonia Imanishi e alunas",
+    k: "陶", t: "Cerâmica", who: "Sonia Imanishi e alunos",
     price: 0, spots: "Crianças 20 · Adultos 10 vagas",
     img: "imgs/oficinas/ceramica.jpg",
     texto: [
-      "Um encontro com o barro ao lado de Sonia Imanishi e suas alunas, para crianças e adultos colocarem a mão na massa.",
+      "Um encontro com o barro ao lado de Sonia Imanishi e seus alunos, para crianças e adultos colocarem a mão na massa.",
     ],
     detalhes: [
       { rotulo: "Horário", valor: "" },
