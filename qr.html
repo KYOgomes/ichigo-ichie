@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de QR · Ichigô Ichiê</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --washi:#f6efe2; --sumi:#221c19; --shu:#c8102e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Zen Kaku Gothic New",sans-serif; background:var(--washi); color:var(--sumi); display:grid; place-items:center; min-height:100vh; padding:24px 16px; }
+    main { width:min(520px,100%); text-align:center; }
+    h1 { font-family:"Shippori Mincho B1",serif; color:var(--shu); margin:0 0 .3em; }
+    label { display:block; font-weight:700; margin:1.2rem 0 .4rem; text-align:left; }
+    input, select { width:100%; padding:.8em 1em; border-radius:10px; border:1.5px solid rgba(0,0,0,.2); font:inherit; }
+    .row { display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:1.2rem; }
+    button { font:inherit; font-weight:700; border:0; border-radius:999px; padding:.8em 1.4em; background:var(--shu); color:#fff; cursor:pointer; }
+    button.alt { background:var(--sumi); }
+    #preview { margin:1.6rem auto 0; background:#fff; padding:18px; border-radius:16px; box-shadow:0 10px 30px -12px rgba(0,0,0,.35); display:inline-block; }
+    #preview canvas { display:block; width:280px; max-width:100%; height:auto; }
+    small { color:#6b5f57; display:block; margin-top:1rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>QR Code · Ichigô Ichiê</h1>
+    <p>Cole o endereço do site publicado e baixe a imagem em alta resolução para imprimir.</p>
+    <label for="url">Endereço do site</label>
+    <input id="url" type="url" placeholder="https://ichigo-ichie.netlify.app">
+    <label for="style">Estilo</label>
+    <select id="style">
+      <option value="red">Vermelho com emblema no centro</option>
+      <option value="black">Preto simples (máxima leitura)</option>
+    </select>
+    <div id="preview"><canvas id="cv"></canvas></div>
+    <div class="row">
+      <button id="png">Baixar PNG (impressão)</button>
+      <button id="svg" class="alt">Baixar SVG (gráfica)</button>
+    </div>
+    <small>Dica: imprima com pelo menos 3 × 3 cm e teste com mais de um celular antes de rodar a tiragem.</small>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script>
+    const urlIn = document.getElementById("url");
+    const styleIn = document.getElementById("style");
+    const cv = document.getElementById("cv");
+    urlIn.value = location.href.replace(/qr\.html.*$/, "");
+
+    function build() {
+      const qr = qrcode(0, "H"); // correção alta: permite o emblema no centro
+      qr.addData(urlIn.value.trim() || "https://");
+      qr.make();
+      return qr;
+    }
+
+    function draw(scale = 24) {
+      const qr = build(), n = qr.getModuleCount(), quiet = 4;
+      const size = (n + quiet * 2) * scale;
+      cv.width = cv.height = size;
+      const ctx = cv.getContext("2d");
+      const red = styleIn.value === "red";
+      ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = red ? "#9b0c23" : "#000";
+      for (let r = 0; r < n; r++) for (let c = 0; c < n; c++)
+        if (qr.isDark(r, c)) ctx.fillRect((c + quiet) * scale, (r + quiet) * scale, scale, scale);
+      if (red) {
+        // emblema central (ocupa ~18% do código, dentro da margem de correção H)
+        const cx = size / 2, R = n * scale * 0.11;
+        ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(cx, cx, R * 1.25, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#c8102e"; ctx.beginPath(); ctx.arc(cx, cx, R, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#fff";
+        for (let i = 0; i < 4; i++) {
+          const a = Math.PI / 4 + i * Math.PI / 2;
+          ctx.beginPath(); ctx.arc(cx + Math.cos(a) * R * .32, cx + Math.sin(a) * R * .32, R * .36, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.fillStyle = "#c8102e"; ctx.beginPath(); ctx.arc(cx, cx, R * .16, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    function download(href, name) {
+      const a = document.createElement("a"); a.href = href; a.download = name; a.click();
+    }
+    document.getElementById("png").onclick = () => { draw(40); download(cv.toDataURL("image/png"), "qrcode-ichigo-ichie.png"); draw(); };
+    document.getElementById("svg").onclick = () => {
+      const svg = build().createSvgTag({ cellSize: 10, margin: 40, scalable: true });
+      download(URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" })), "qrcode-ichigo-ichie.svg");
+    };
+    urlIn.addEventListener("input", () => draw());
+    styleIn.addEventListener("change", () => draw());
+    draw();
+  </script>
+</body>
+</html>

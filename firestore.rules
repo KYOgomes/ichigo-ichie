@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// Regras do contador de tsurus: qualquer pessoa pode ler o total,
+// mas só pode somar exatamente 1 por vez (ninguém zera nem pula o contador).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contadores/tsurus {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['total'])
+                    && request.resource.data.total == 1;
+      allow update: if request.resource.data.keys().hasOnly(['total'])
+                    && request.resource.data.total == resource.data.total + 1;
+      allow delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

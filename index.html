@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ichigô Ichiê · 11ª Edição · Retiro do Chalé</title>
+  <meta name="description" content="Ichigô Ichiê – 11ª edição. Um encontro com a cultura japonesa no Retiro do Chalé, Brumadinho/MG. Sábado, 28 de novembro de 2026, das 12h às 21h. Oficinas, exposições, Kenjutsu, culinária japonesa e entrada gratuita.">
+  <meta name="theme-color" content="#b3142a">
+
+  <!-- Pré-visualização ao compartilhar (WhatsApp, Instagram etc.).
+       Depois de publicar, troque os caminhos de imagem por URLs absolutas (https://seusite/imgs/cartazIchigo.jpeg) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ichigô Ichiê · 11ª Edição">
+  <meta property="og:description" content="Cada encontro é único e valioso. Sábado, 28/nov/2026, 12h às 21h · Retiro do Chalé, Brumadinho/MG · Entrada gratuita.">
+  <meta property="og:image" content="imgs/cartazIchigo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cpolygon points='100,80 128,82 150,8' fill='%238c1726'/%3E%3Cpolygon points='128,84 142,80 192,36' fill='%23b01e31'/%3E%3Cpolygon points='62,84 100,76 142,82 104,108' fill='%23d7263d'/%3E%3Cpolygon points='62,84 82,82 24,34' fill='%23b01e31'/%3E%3Cpolygon points='24,34 31,38 10,50' fill='%238c1726'/%3E%3Cpolygon points='72,84 116,82 82,2' fill='%23d7263d'/%3E%3Cpolygon points='72,84 94,83 82,2' fill='%23b01e31'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navegação ===== -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand" aria-label="Ichigô Ichiê – início">
+      <svg class="kamon kamon--sm" viewBox="0 0 200 200" aria-hidden="true"><use href="#kamon" width="200" height="200"/></svg>
+      <span>Ichigô Ichiê</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__menu" id="navMenu">
+      <a href="#sobre">O encontro</a>
+      <a href="#oficinas">Oficinas</a>
+      <a href="#atracoes">Atrações</a>
+      <a href="#tsuru">Tsuru</a>
+      <a href="#local">Como chegar</a>
+      <a href="#oficinas" class="nav__cta">Reservar</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero__sun" aria-hidden="true"></div>
+    <div class="sky" id="sky" aria-hidden="true"></div>
+
+    <p class="hero__vertical" aria-hidden="true">一期一会</p>
+
+    <div class="hero__content">
+      <div class="hero__logo">
+        <svg class="kamon" viewBox="0 0 200 200" role="img" aria-label="Emblema do Ichigô Ichiê"><use href="#kamon" width="200" height="200"/></svg>
+        <span class="hero__edition">11ª Edição</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__title-jp" aria-hidden="true">一期一会</span>
+        Ichigô Ichiê
+      </h1>
+      <p class="hero__tagline">Cada encontro é único e valioso</p>
+
+      <div class="hero__meta">
+        <div><strong>Sábado · 28 nov 2026</strong><span>das 12h às 21h</span></div>
+        <div class="hero__dot" aria-hidden="true">◆</div>
+        <div><strong>Retiro do Chalé</strong><span>Brumadinho · MG</span></div>
+      </div>
+
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="countdown__item"><span id="cdD">--</span><small>dias</small></div>
+        <div class="countdown__item"><span id="cdH">--</span><small>horas</small></div>
+        <div class="countdown__item"><span id="cdM">--</span><small>min</small></div>
+        <div class="countdown__item"><span id="cdS">--</span><small>seg</small></div>
+      </div>
+      <p class="countdown__msg" id="countdownMsg" hidden></p>
+
+      <div class="hero__actions">
+        <a href="#oficinas" class="btn btn--red">Ver oficinas</a>
+        <a href="#local" class="btn btn--ghost">Como chegar</a>
+      </div>
+      <p class="hero__free"><span>入場無料</span> Entrada gratuita</p>
+    </div>
+
+    <svg class="hero__mountains" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="mt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b3430" stop-opacity=".22"/><stop offset="1" stop-color="#3b3430" stop-opacity=".02"/></linearGradient>
+        <linearGradient id="mt2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2420" stop-opacity=".38"/><stop offset="1" stop-color="#2a2420" stop-opacity=".08"/></linearGradient>
+      </defs>
+      <path fill="url(#mt1)" d="M0 170 L120 120 L210 150 L330 70 L430 130 L560 90 L690 140 L820 60 L930 120 L1060 80 L1180 140 L1300 95 L1440 130 L1440 260 L0 260Z"/>
+      <path fill="url(#mt2)" d="M0 220 L160 160 L280 200 L420 140 L540 190 L700 130 L850 200 L990 150 L1120 205 L1280 160 L1440 200 L1440 260 L0 260Z"/>
+    </svg>
+    <div class="wave-edge" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== Sobre ===== -->
+  <section class="section section--paper" id="sobre">
+    <div class="container about">
+      <div class="about__kanji reveal" aria-hidden="true">
+        <span>一</span><span>期</span><span>一</span><span>会</span>
+      </div>
+      <div class="about__text reveal">
+        <p class="eyebrow">O encontro</p>
+        <h2 class="title">Um momento existencial único</h2>
+        <p class="lead"><em>Ichigo ichie</em> é uma expressão japonesa nascida na cerimônia do chá: <strong>“uma vez, um encontro”</strong>. Cada reunião acontece uma só vez na vida e, por isso, merece ser vivida com todo o coração.</p>
+        <p><strong>Sonia Imanishi</strong> une-se à arte para oferecer um agradável encontro com exposição e feira de cerâmicas, junto às suas 15 alunas, e convida mestres e artistas para celebrar as belezas da <strong>Serra da Moeda</strong> e a cultura japonesa.</p>
+        <ul class="facts">
+          <li><span class="facts__k">日</span><div><strong>Sábado, 28 de novembro de 2026</strong>das 12h às 21h</div></li>
+          <li><span class="facts__k">場</span><div><strong>Restaurante do Retiro do Chalé</strong>Brumadinho · MG</div></li>
+          <li><span class="facts__k">無</span><div><strong>Entrada gratuita</strong>Oficinas gratuitas e pagas, com reserva</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Oficinas ===== -->
+  <section class="section section--seigaiha" id="oficinas">
+    <div class="container">
+      <header class="section__head reveal">
+        <span class="section__kanji" aria-hidden="true">体験</span>
+        <p class="eyebrow">Mão na massa</p>
+        <h2 class="title">Oficinas</h2>
+        <p class="section__sub">Vagas limitadas. Reserve direto pelo WhatsApp com <strong>Geraldo Faraci</strong> · (31) 98854-2319</p>
+      </header>
+
+      <div class="filters reveal" role="tablist" aria-label="Filtrar oficinas">
+        <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">Todas</button>
+        <button class="filter" data-filter="free" role="tab" aria-selected="false">Gratuitas</button>
+        <button class="filter" data-filter="paid" role="tab" aria-selected="false">Pagas</button>
+      </div>
+
+      <div class="cards" id="workshops"></div>
+    </div>
+  </section>
+
+  <!-- ===== Atrações ===== -->
+  <section class="section section--indigo" id="atracoes">
+    <div class="container">
+      <header class="section__head section__head--light reveal">
+        <span class="section__kanji" aria-hidden="true">催し</span>
+        <p class="eyebrow">Para ver e sentir</p>
+        <h2 class="title">Atrações &amp; Exposições</h2>
+      </header>
+
+      <article class="feature reveal">
+        <div class="feature__mark" aria-hidden="true">剣</div>
+        <div>
+          <p class="eyebrow">Apresentação especial</p>
+          <h3>Instituto Niten · Kenjutsu</h3>
+          <p>Demonstração da arte do combate de espadas japonesas, com foco em <em>Kata</em> — a forma, a disciplina e o espírito do samurai.</p>
+        </div>
+      </article>
+
+      <div class="attractions" id="attractions"></div>
+    </div>
+  </section>
+
+  <!-- ===== Tsuru / desejos ===== -->
+  <section class="section section--paper tsuru" id="tsuru">
+    <div class="container tsuru__grid">
+      <div class="tsuru__text reveal">
+        <span class="section__kanji section__kanji--left" aria-hidden="true">千羽鶴</span>
+        <p class="eyebrow">Senbazuru · mil tsurus</p>
+        <h2 class="title">Solte o seu tsuru</h2>
+        <p>Diz a lenda japonesa que quem dobra <strong>mil tsurus</strong> de papel tem um desejo realizado. O grou é símbolo de longevidade, paz e boa sorte — e voa com a gente em cada edição do Ichigô Ichiê.</p>
+        <p>Faça um desejo aqui e, no dia do evento, deixe-o na nossa <strong>Árvore dos Desejos</strong> e aprenda a dobrar o seu tsuru na oficina de Origami com o mestre Célio Costa.</p>
+        <form class="wish" id="wishForm" autocomplete="off">
+          <label for="wishInput" class="visually-hidden">Seu desejo</label>
+          <input id="wishInput" maxlength="60" placeholder="Escreva seu desejo…" required>
+          <button class="btn btn--red" type="submit">Soltar tsuru</button>
+        </form>
+        <div class="wish__stats" id="wishStats">
+          <div class="wish__bar" aria-hidden="true"><span id="wishBar"></span></div>
+          <p class="wish__count"><span id="wishCount">0</span> tsurus já voaram · faltam <span id="wishLeft">1.000</span> para os mil</p>
+          <p class="wish__mine" id="wishMineWrap" hidden>Você já soltou <span id="wishMine">0</span> 🕊</p>
+        </div>
+        <div class="wish__done" id="wishDone" hidden>
+          <span class="wish__done-k" aria-hidden="true">千</span>
+          <p class="wish__done-title">Os mil tsurus voaram!</p>
+          <p><strong>Agora é só no evento!</strong> Deixe o dia reservado na sua agenda.</p>
+          <p class="wish__done-thanks">Arigatô gozaimasu! Muito obrigado por soltar os tsurus com a gente. Juntos completamos o senbazuru, e os desejos de todos seguem voando até o dia 28/11.</p>
+          <div class="local__buttons">
+            <a class="btn btn--red js-gcal" target="_blank" rel="noopener" href="#">＋ Google Agenda</a>
+            <button class="btn btn--ghost js-ics" type="button">＋ Agenda do celular</button>
+          </div>
+        </div>
+      </div>
+      <div class="tsuru__stage reveal" id="tsuruStage" aria-hidden="true">
+        <div class="tsuru__big" id="tsuruBig"></div>
+        <div class="tsuru__string"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gastronomia ===== -->
+  <section class="section section--red" id="gastronomia">
+    <div class="container food">
+      <figure class="food__photo">
+        <img src="imgs/sake.jpg" alt="Conjunto laqueado para saquê decorado com tsurus" loading="lazy" width="900" height="800">
+        <span class="food__mark" aria-hidden="true">食</span>
+        <figcaption>Brinde com saquê · cortesia</figcaption>
+      </figure>
+      <div class="food__text reveal">
+        <p class="eyebrow">Gastronomia</p>
+        <h2 class="title">Sabores do Japão e do Brasil</h2>
+        <p class="lead">Almoço e jantar com culinária japonesa e brasileira no Restaurante do Retiro do Chalé.</p>
+        <div class="food__badge"><span>乾杯</span><div><strong>Cortesia</strong>Coquetel com saquê</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Material oficial ===== -->
+  <section class="section section--paper" id="material">
+    <div class="container">
+      <header class="section__head reveal">
+        <span class="section__kanji" aria-hidden="true">案内</span>
+        <p class="eyebrow">Para guardar e compartilhar</p>
+        <h2 class="title">Material oficial</h2>
+      </header>
+      <div class="gallery">
+        <button class="gallery__item reveal" data-full="imgs/cartazIchigo.jpeg" data-alt="Cartaz do Ichigô Ichiê, 11ª edição">
+          <img src="imgs/cartazIchigo.jpeg" alt="Cartaz do Ichigô Ichiê, 11ª edição" loading="lazy">
+          <span>Cartaz</span>
+        </button>
+        <button class="gallery__item reveal" data-full="imgs/pangletoIchigo.jpeg" data-alt="Panfleto do Ichigô Ichiê com oficinas e valores">
+          <img src="imgs/pangletoIchigo.jpeg" alt="Panfleto do Ichigô Ichiê com oficinas e valores" loading="lazy">
+          <span>Panfleto</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Local ===== -->
+  <section class="section section--seigaiha" id="local">
+    <div class="container local">
+      <div class="local__info reveal">
+        <span class="section__kanji section__kanji--left" aria-hidden="true">道</span>
+        <p class="eyebrow">Como chegar</p>
+        <h2 class="title">Restaurante do Retiro do Chalé</h2>
+        <p class="lead">Condomínio Retiro do Chalé · Brumadinho, Minas Gerais — aos pés da Serra da Moeda.</p>
+        <div class="local__buttons">
+          <a class="btn btn--red" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Retiro+do+Chal%C3%A9+Brumadinho+MG">Google Maps</a>
+          <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://waze.com/ul?q=Retiro%20do%20Chal%C3%A9%20Brumadinho&navigate=yes">Waze</a>
+        </div>
+        <div class="local__buttons">
+          <a class="btn btn--line js-gcal" target="_blank" rel="noopener" href="#">＋ Google Agenda</a>
+          <button class="btn btn--line js-ics" type="button">＋ Agenda do celular</button>
+        </div>
+      </div>
+      <div class="local__map reveal">
+        <iframe title="Mapa do Retiro do Chalé" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Restaurante+Retiro+do+Chal%C3%A9+Brumadinho+MG&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <svg class="kamon kamon--md" viewBox="0 0 200 200" aria-hidden="true"><use href="#kamon" width="200" height="200"/></svg>
+      <p class="footer__title">Ichigô Ichiê · 11ª Edição</p>
+      <p>Sábado, 28/nov/2026 · 12h às 21h · Retiro do Chalé, Brumadinho/MG</p>
+      <p>Reservas das oficinas: <a href="https://wa.me/5531988542319" target="_blank" rel="noopener">Geraldo Faraci · (31) 98854-2319</a></p>
+      <p class="footer__support">Apoio: <strong>Condomínio Retiro do Chalé</strong></p>
+      <button class="btn btn--ghost btn--light" id="shareBtn" type="button">Compartilhar com amigos</button>
+      <p class="footer__jp" aria-hidden="true">一期一会 — またお会いしましょう</p>
+    </div>
+    <a class="credit" href="https://kyogomes.github.io/" target="_blank" rel="noopener">desenvolvido por Caio Gomes</a>
+  </footer>
+
+  <!-- Barra fixa no celular -->
+  <div class="mobilebar" id="mobilebar">
+    <a href="https://wa.me/5531988542319?text=Ol%C3%A1%20Geraldo!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20oficinas%20do%20Ichig%C3%B4%20Ichi%C3%AA." target="_blank" rel="noopener" class="mobilebar__btn mobilebar__btn--red">Reservar oficina</a>
+    <a href="#local" class="mobilebar__btn">Como chegar</a>
+  </div>
+
+  <!-- Detalhes da oficina ("Ver mais") -->
+  <dialog class="ofmodal" id="ofModal" aria-labelledby="ofTitle">
+    <button class="ofmodal__close" id="ofClose" aria-label="Fechar">×</button>
+    <div class="ofmodal__scroll">
+      <div class="ofmodal__media" id="ofMedia"></div>
+      <div class="ofmodal__body">
+        <div class="card__stamp" id="ofStamp" aria-hidden="true"></div>
+        <h3 class="ofmodal__title" id="ofTitle"></h3>
+        <p class="card__who" id="ofWho"></p>
+        <div class="card__tags" id="ofTags"></div>
+        <div class="ofmodal__text" id="ofText"></div>
+        <dl class="ofmodal__info" id="ofInfo"></dl>
+        <a class="btn btn--red ofmodal__cta" id="ofReserve" target="_blank" rel="noopener" href="#">Reservar vaga pelo WhatsApp</a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">×</button>
+    <img id="lightboxImg" alt="">
+  </dialog>
+
+  <!-- Símbolos SVG reutilizáveis -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="kamon" viewBox="-100 -100 200 200">
+        <circle r="98" fill="#c8102e"/>
+        <circle r="84" fill="none" stroke="#fff" stroke-width="3"/>
+        <path fill="#fff" d="M26,0 A28,28 0 1 0 0,-26 A28,28 0 1 0 -26,0 A28,28 0 1 0 0,26 A28,28 0 1 0 26,0Z" transform="scale(1.08)"/>
+        <path fill="#c8102e" d="M26,0 A28,28 0 1 0 0,-26 A28,28 0 1 0 -26,0 A28,28 0 1 0 0,26 A28,28 0 1 0 26,0Z" transform="scale(.82)"/>
+        <path fill="none" stroke="#fff" stroke-width="2.5" d="M0,-40 L0,40 M-40,0 L40,0" opacity=".9"/>
+        <circle r="9" fill="#fff"/>
+        <circle r="4" fill="#c8102e"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/oficinas.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Contador global de tsurus (Firebase). Configure em js/firebase-config.js -->
+  <script type="module" src="js/contador.js"></script>
+</body>
+</html>
