@@ -238,11 +238,15 @@ main, section, footer, header { position: relative; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } }
 
 /* bordas de onda (seigaiha) entre seções */
+/* --edge-fill = cor de fundo da seção seguinte, que "sobe" em ondas sobre a atual */
 .wave-edge {
+  --edge-fill: var(--washi-2);
   position: absolute; left: 0; right: 0; bottom: -1px; height: 40px; z-index: 2;
+  pointer-events: none;
   background:
-    radial-gradient(circle at 20px 40px, var(--washi-2) 19px, var(--kin) 19px 21px, var(--washi-2) 21px 26px, var(--kin) 26px 28px, transparent 28px) 0 0 / 40px 40px repeat-x;
+    radial-gradient(circle at 20px 40px, var(--edge-fill) 19px, var(--kin) 19px 21px, var(--edge-fill) 21px 26px, var(--kin) 26px 28px, transparent 28px) 0 0 / 40px 40px repeat-x;
 }
+.wave-edge--washi { --edge-fill: var(--washi); }
 
 /* ===== Céu com tsurus ===== */
 .sky { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
