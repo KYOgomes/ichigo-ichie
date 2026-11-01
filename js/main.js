@@ -134,7 +134,6 @@
     wrap.innerHTML = workshops.map((w, i) => {
       const free = w.price === 0;
       return `<article class="card reveal" data-type="${free ? "free" : "paid"}" style="--i:${i}">
-        ${w.img ? `<div class="card__thumb"><img src="${w.img}" alt="" loading="lazy"></div>` : ""}
         <div class="card__stamp" aria-hidden="true">${w.k}</div>
         <h3>${w.t}</h3>
         <p class="card__who">${w.who}</p>
@@ -166,8 +165,11 @@
     const dlg = $("#ofModal");
     const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const open = (w) => {
+      // URL absoluta no --bg: relativa, ela seria resolvida a partir de css/style.css e quebraria
       $("#ofMedia").innerHTML = w.img
-        ? `<img src="${w.img}" alt="Oficina de ${esc(w.t)}">`
+        ? `<button class="ofmodal__photo" type="button" style="--bg:url('${new URL(w.img, location.href).href}')" aria-label="Ampliar foto da oficina de ${esc(w.t)}">
+             <img src="${w.img}" alt="Oficina de ${esc(w.t)}"><span class="ofmodal__zoom">⤢ ampliar</span>
+           </button>`
         : `<div class="ofmodal__placeholder"><span>${w.k}</span><small>foto em breve</small></div>`;
       $("#ofStamp").textContent = w.k;
       $("#ofTitle").textContent = w.t;
@@ -186,7 +188,7 @@
       if (window.gsap && !reduceMotion) {
         // a entrada da própria janela é feita em CSS: transformar o <dialog> pelo GSAP tira o modo modal no Chrome
         gsap.timeline()
-          .fromTo("#ofMedia > *", { scale: 1.15 }, { scale: 1, duration: 1.2, ease: "power2.out" }, 0)
+          .fromTo("#ofMedia img, .ofmodal__placeholder span", { scale: 1.15, opacity: 0 }, { scale: 1, opacity: 1, duration: .9, ease: "power2.out" }, 0)
           .from("#ofStamp", { scale: 2.5, rotate: -40, opacity: 0, duration: .5, ease: "back.out(2.5)" }, .2)
           .from(".ofmodal__body > :not(#ofStamp)", { y: 20, opacity: 0, duration: .5, stagger: .06, ease: "power2.out" }, .25);
       }
@@ -194,6 +196,14 @@
     $("#workshops").addEventListener("click", (e) => {
       const b = e.target.closest(".card__more");
       if (b) open(workshops[+b.dataset.index]);
+    });
+    $("#ofMedia").addEventListener("click", (e) => {
+      const photo = e.target.closest(".ofmodal__photo");
+      if (!photo) return;
+      const img = photo.querySelector("img");
+      $("#lightboxImg").src = img.src;
+      $("#lightboxImg").alt = img.alt;
+      $("#lightbox").showModal();
     });
     $("#ofClose").addEventListener("click", () => dlg.close());
     dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });

@@ -684,7 +684,7 @@ main, section, footer, header { position: relative; }
 /* ===== "Ver mais" das oficinas ===== */
 .ofmodal {
   border: 0; padding: 0; border-radius: 18px;
-  width: min(760px, 100% - 24px); max-height: min(88vh, 900px);
+  width: min(700px, 100% - 24px); max-height: min(90vh, 960px);
   background: #fffaf2; color: var(--sumi);
   box-shadow: 0 40px 80px -30px rgba(0,0,0,.6);
   overflow: hidden;
@@ -692,9 +692,29 @@ main, section, footer, header { position: relative; }
 .ofmodal[open] { display: flex; animation: modalIn .55s cubic-bezier(.2,.9,.3,1.25) both; }
 @keyframes modalIn { from { opacity: 0; transform: translateY(60px) scale(.94); } }
 .ofmodal::backdrop { background: rgba(20, 15, 12, .78); backdrop-filter: blur(4px); }
-.ofmodal__scroll { overflow-y: auto; overscroll-behavior: contain; width: 100%; display: grid; grid-template-columns: 1fr 1.15fr; }
-.ofmodal__media { position: relative; overflow: hidden; min-height: 100%; background: var(--washi-2); }
-.ofmodal__media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.ofmodal__scroll { overflow-y: auto; overscroll-behavior: contain; width: 100%; }
+.ofmodal__media { position: relative; overflow: hidden; aspect-ratio: 16 / 10; max-height: 46vh; width: 100%; background: var(--washi-2); }
+/* foto inteira (contain) sobre um fundo desfocado dela mesma: qualquer proporção fica bonita */
+.ofmodal__photo { position: absolute; inset: 0; border: 0; padding: 0; background: none; cursor: zoom-in; display: block; width: 100%; }
+.ofmodal__photo::before {
+  content: ""; position: absolute; inset: -30px;
+  background: var(--bg) center / cover;
+  filter: blur(22px) saturate(1.2) brightness(.85);
+}
+.ofmodal__photo img {
+  position: relative; width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
+}
+.ofmodal__zoom {
+  position: absolute; right: 12px; bottom: 12px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+  color: #fff; background: rgba(34,28,25,.55); backdrop-filter: blur(6px);
+  padding: .35em .8em; border-radius: 999px;
+  opacity: .85; transition: opacity .25s;
+}
+.ofmodal__photo:hover .ofmodal__zoom { opacity: 1; }
+.ofmodal__body { position: relative; }
+.ofmodal__body > .card__stamp { margin-top: calc(-28px - clamp(1.4rem, 4vw, 2.2rem)); position: relative; z-index: 1; box-shadow: inset 0 0 0 3px var(--shu), inset 0 0 0 5px rgba(255,255,255,.55), 0 8px 18px -6px rgba(0,0,0,.4); }
 .ofmodal__placeholder {
   position: absolute; inset: 0; display: grid; place-items: center;
   background: var(--washi-2);
@@ -725,8 +745,6 @@ main, section, footer, header { position: relative; }
 .ofmodal__close:focus-visible { outline: 2px solid var(--shu); outline-offset: 2px; }
 @media (max-width: 720px) {
   .ofmodal { max-height: 92vh; }
-  .ofmodal__scroll { grid-template-columns: 1fr; }
-  .ofmodal__media { min-height: 0; aspect-ratio: 16 / 10; }
 }
 
 /* ===== Contador de tsurus ===== */
