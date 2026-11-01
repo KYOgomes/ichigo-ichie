@@ -467,8 +467,6 @@
     /* Tsuru grande gira ao entrar */
     gsap.from("#tsuruStage", { scale: .5, rotate: -25, opacity: 0, duration: 1.3, ease: "elastic.out(1, .6)",
       scrollTrigger: { trigger: "#tsuruStage", start: "top 80%" } });
-    gsap.from(".tsuru__photo", { x: 80, y: 40, rotate: 30, opacity: 0, duration: 1, delay: .5, ease: "back.out(1.6)",
-      scrollTrigger: { trigger: "#tsuruStage", start: "top 80%" } });
 
     /* Gastronomia: kanji 食 gira e o fundo desliza */
     gsap.from(".food__photo", { y: 80, rotate: -14, opacity: 0, duration: 1.2, ease: "power3.out",
