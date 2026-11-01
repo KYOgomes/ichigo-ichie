@@ -98,7 +98,7 @@ window.OFICINAS = [
     price: 80, spots: "10 vagas",
     img: "imgs/oficinas/comida-japonesa.jpg",
     texto: [
-      "Uma experiência prática na cozinha japonesa, com dicas de preparo e montagem de pratos tradicionais.",
+      "Uma experiência prática na cozinha japonesa, com dicas de preparo e montagem de pratos tradicionais com o chefe Geraldo Faraci.",
     ],
     detalhes: [
       { rotulo: "Horário", valor: "" },
