@@ -533,7 +533,7 @@ main, section, footer, header { position: relative; }
   rotate: -3deg;
   max-width: 460px; width: 100%; justify-self: center;
 }
-.food__photo img { width: 100%; height: auto; aspect-ratio: 9 / 8; object-fit: cover; }
+.food__photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .food__photo figcaption {
   position: absolute; left: 0; right: 0; bottom: 12px; text-align: center;
   font-family: var(--font-title); font-weight: 700; color: var(--sumi);
