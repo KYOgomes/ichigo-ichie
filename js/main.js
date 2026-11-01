@@ -26,7 +26,6 @@
     { k: "菓", t: "Doces japoneses", d: "Yumi Tomi · wagashi e delícias." },
     { k: "山", t: "Mostra do Livro Serra da Moeda", d: "As belezas da nossa serra." },
     { k: "種", t: "Sementes do Cerrado e Mata Atlântica", d: "Decoração do espaço com sementes de árvores nativas." },
-    { k: "願", t: "Árvore dos Desejos", d: "Pendure o seu desejo e deixe-o florescer." },
   ];
 
   const waLink = (msg) => `https://wa.me/${WHATS}?text=${encodeURIComponent(msg)}`;
@@ -233,6 +232,16 @@
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
     }));
+    // rolagem suave feita aqui e não via CSS (scroll-behavior: smooth): o CSS atrapalha as medições
+    // do ScrollTrigger.refresh() e deixava o topo "apagado" depois de usar o filtro das oficinas
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      const target = a && a.getAttribute("href").length > 1 && document.querySelector(a.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      history.replaceState(null, "", a.getAttribute("href"));
+    });
   }
 
   /* ---------- Desejos / tsuru ---------- */
