@@ -179,6 +179,11 @@
       $("#ofText").innerHTML = texto.length
         ? texto.map((p) => `<p>${esc(p)}</p>`).join("")
         : '<p class="ofmodal__soon">A descrição completa desta oficina chega em breve. Enquanto isso, fale com o Geraldo pelo WhatsApp para tirar dúvidas e garantir sua vaga.</p>';
+      const lista = w.lista && (w.lista.itens || []).filter(Boolean);
+      $("#ofList").innerHTML = lista && lista.length
+        ? `<p class="ofmodal__list-title">${esc(w.lista.titulo || "")}</p><ul>${lista.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`
+        : "";
+      $("#ofList").hidden = !(lista && lista.length);
       const info = (w.detalhes || []).filter((d) => d.valor);
       $("#ofInfo").innerHTML = info.map((d) => `<div><dt>${esc(d.rotulo)}</dt><dd>${esc(d.valor)}</dd></div>`).join("");
       $("#ofInfo").hidden = !info.length;

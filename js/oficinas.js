@@ -11,6 +11,7 @@
      img      → foto: coloque o arquivo em imgs/oficinas/ e escreva o caminho
                 (ex.: "imgs/oficinas/bonsai.jpg"). Vazio = mostra o carimbo no lugar.
      texto    → parágrafos do "Ver mais" (cada item da lista é um parágrafo)
+     lista    → opcional: { titulo, itens } — lista de nomes exibida após o texto
      detalhes → lista de informações extras exibidas em destaque
                 (ex.: { rotulo: "Duração", valor: "2 horas" }). Itens vazios são ocultados.
    ========================================================= */
@@ -74,6 +75,29 @@ window.OFICINAS = [
     texto: [
       "Um encontro com o barro ao lado de Sonia Imanishi e seus alunos, para crianças e adultos colocarem a mão na massa.",
     ],
+    lista: {
+      titulo: "Sonia Imanishi une-se à arte junto a seus alunos:",
+      itens: [
+        "Mônica Viegas",
+        "Marise Neves",
+        "Lilian Fagundes",
+        "Cláudia Rêgo",
+        "Cassandra França",
+        "Joana Soares",
+        "Helena Gontijo",
+        "Carla Andrade",
+        "Izabela Guarino",
+        "Cláudio Márcio",
+        "Marcos Antonio",
+        "Luisa van den Bergen",
+        "Ignez Perpétuo",
+        "Bernadete Vieira",
+        "Antonio Pereira",
+        "Igara de Castro",
+        "Conceição Maria",
+        "Laisa Ribeiro",
+      ],
+    },
     detalhes: [
       { rotulo: "Horário", valor: "" },
       { rotulo: "Duração", valor: "" },

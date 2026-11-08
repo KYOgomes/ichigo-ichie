@@ -823,3 +823,21 @@ main, section, footer, header { position: relative; }
   .wishtree { grid-template-columns: 1fr; }
   .wishtree__photo { min-height: 0; aspect-ratio: 16 / 9; }
 }
+
+/* ===== Lista de nomes no "Ver mais" (ex.: alunos da Cerâmica) ===== */
+.ofmodal__list {
+  margin: 0 0 1.4rem; padding: 1rem 1.1rem 1.1rem;
+  background: var(--washi-2); border-radius: 12px;
+  border-left: 3px solid var(--shu);
+}
+.ofmodal__list-title { font-family: var(--font-title); font-weight: 700; margin-bottom: .7rem; }
+.ofmodal__list ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem 1rem;
+}
+@media (max-width: 720px) { .ofmodal__list ul { grid-template-columns: repeat(2, 1fr); gap: .35rem .8rem; } }
+.ofmodal__list li { position: relative; padding-left: 1.1rem; font-size: .95rem; }
+.ofmodal__list li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--shu);
+}
